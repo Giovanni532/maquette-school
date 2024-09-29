@@ -20,7 +20,22 @@ const config: Config = {
     },
   },
   darkMode: "class",
-  plugins: [nextui(), addVariablesForColors],
+  plugins: [nextui(
+    {
+      themes: {
+        light: {
+          colors: {
+            primary: "#f6f7a9",
+          }
+        },
+        dark: {
+          colors: {
+            primary: "#f6f7a9",
+          }
+        },
+      },
+    }
+  ), addVariablesForColors],
 };
 
 function addVariablesForColors({ addBase, theme }: any) {

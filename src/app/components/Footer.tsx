@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@nextui-org/react'
+import { Button, Link } from '@nextui-org/react'
 import { GrGithub } from 'react-icons/gr'
 
 export default function Footer() {
@@ -8,6 +8,8 @@ export default function Footer() {
             <p className="text-sm">&copy; {new Date().getFullYear()} Salcuni Giovanni. Tous droits réservés.</p>
             <div className="flex gap-4">
                 <Button
+                    as={Link}
+                    href='https://github.com/Giovanni532/maquette-school'
                     isIconOnly
                     variant='light'
                     color='secondary'
