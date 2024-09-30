@@ -1,4 +1,6 @@
+import { paths } from '@/paths'
 import { Button } from '@nextui-org/react'
+import Link from 'next/link'
 import React from 'react'
 
 export default function HeroSection() {
@@ -8,7 +10,12 @@ export default function HeroSection() {
         <p className="text-lg text-gray-500 font-medium text-center">
            Tu trouvera des projets que des <span className='text-secondary'>étudiants</span> ont réalisés <br/> dans le cadre de leur projet de premiere année.<br/> <span className="text-3xl">🚀</span>
         </p>
-        <Button color='secondary' radius='full'>Voir les projets</Button>
+        <Button
+         as={Link}
+         color='secondary' 
+         radius='full'
+         href={paths.projets()}
+         >Voir les projets</Button>
     </div>
   )
 }

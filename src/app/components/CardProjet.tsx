@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Card, CardBody, CardFooter, CardHeader, Image } from '@nextui-org/react'
 import { MdArrowOutward } from "react-icons/md";
+import Link from 'next/link';
+import { paths } from '@/paths';
 
 interface CardProjetProps {
   projet: {
@@ -31,9 +33,11 @@ export default function CardProjet({ projet }: CardProjetProps) {
       <CardFooter className='flex justify-between items-center'>
         <p className='text-sm text-gray-500'>{projet.auteur}</p>
         <Button
+          as={Link}
           variant='light'
           color='secondary'
           radius='full'
+          href={paths.projet(projet.id.toString())}
           endContent={<MdArrowOutward className='h-5 w-5' />}
         >
           Voir le projet

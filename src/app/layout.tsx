@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import 'leaflet/dist/leaflet.css'
 import Provider from "./provider";
 import { BackgroundBeams } from "./components/ui/BackgroundBeams";
 import NavbarLayout from "./components/NavbarLayout";
