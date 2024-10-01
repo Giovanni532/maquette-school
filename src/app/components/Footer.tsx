@@ -9,13 +9,14 @@ export default function Footer() {
             <div className="flex gap-4">
                 <Button
                     as={Link}
+                    name='Lien github'
                     href='https://github.com/Giovanni532/maquette-school'
-                    isIconOnly
+                    endContent={<GrGithub className='h-7 w-7' />}
                     variant='light'
                     color='secondary'
                     radius='full'
                 >
-                    <GrGithub className='h-7 w-7' />
+                    Github
                 </Button>
             </div>
         </div>

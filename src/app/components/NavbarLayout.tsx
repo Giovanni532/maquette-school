@@ -1,6 +1,6 @@
 "use client"
 import { paths } from "@/paths";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Input, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar, Button} from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Input, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar, Button } from "@nextui-org/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaPlus, FaSchool, FaSearch } from "react-icons/fa";
@@ -26,44 +26,39 @@ export default function NavbarLayout() {
   }
 
   return (
-    <Navbar isBordered>
+    <Navbar isBordered isBlurred={false} className="z-40 bg-white">
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
           <FaSchool size={30} />
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent justify="center" className="hidden sm:flex gap-3">
-          <NavbarItem isActive={isActive(paths.home())}>
-            <Link color={isActive(paths.home()) ? "secondary" : "foreground"} href={paths.home()}>
-              Accueil
-            </Link>
-          </NavbarItem>
-          <NavbarItem isActive={isActive(paths.projets())}>
-            <Link color={isActive(paths.projets()) ? "secondary" : "foreground"} href={paths.projets()}>
-              Projets
-            </Link>
-          </NavbarItem>
-          <NavbarItem isActive={isActive(paths.contact())}>
-            <Link color={isActive(paths.contact()) ? "secondary" : "foreground"} href={paths.contact()}>
-              Contact
-            </Link>
-          </NavbarItem>
-        </NavbarContent>
+        <NavbarItem isActive={isActive(paths.home())}>
+          <Link color={isActive(paths.home()) ? "secondary" : "foreground"} href={paths.home()}>
+            Accueil
+          </Link>
+        </NavbarItem>
+        <NavbarItem isActive={isActive(paths.projets())}>
+          <Link color={isActive(paths.projets()) ? "secondary" : "foreground"} href={paths.projets()}>
+            Projets
+          </Link>
+        </NavbarItem>
+        <NavbarItem isActive={isActive(paths.contact())}>
+          <Link color={isActive(paths.contact()) ? "secondary" : "foreground"} href={paths.contact()}>
+            Contact
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
       <NavbarContent as="div" className="items-center" justify="end">
         <Input
           placeholder="Rechercher un projet..."
-          size="sm"
+          size="md"
           startContent={<FaSearch size={18} />}
           type="search"
           value={search}
           onChange={onSearch}
           onKeyDown={handleKeyPress}
-          classNames={{
-            base: "max-w-full sm:max-w-[10rem] h-10",
-            mainWrapper: "h-full",
-            input: "text-small",
-            inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-          }}
+          className="w-50"
         />
         <Button
           color="secondary"
