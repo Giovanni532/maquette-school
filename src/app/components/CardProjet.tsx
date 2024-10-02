@@ -16,14 +16,14 @@ interface CardProjetProps {
 
 export default function CardProjet({ projet }: CardProjetProps) {
   return (
-    <Card radius='lg' className='max-w-xs'>
+    <Card radius='lg' className='max-w-xs mx-auto'>
       <CardHeader className='flex flex-col items-start gap-2'>
-        <Image 
-        src={projet.image} 
-        alt={projet.titre} 
-        width={400} 
-        height={150} 
-        className='object-cover'
+        <Image
+          src={projet.image}
+          alt={projet.titre}
+          width={400}
+          height={150}
+          className='object-cover'
         />
         <h2 className='text-2xl font-bold'>{projet.titre}</h2>
       </CardHeader>

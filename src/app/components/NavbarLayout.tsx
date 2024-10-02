@@ -27,12 +27,12 @@ export default function NavbarLayout() {
 
   return (
     <Navbar isBordered isBlurred={false} className="z-40 bg-white">
-      <NavbarContent justify="start">
-        <NavbarBrand className="mr-4">
-          <FaSchool size={30} />
-        </NavbarBrand>
-      </NavbarContent>
       <NavbarContent justify="center" className="hidden sm:flex gap-3">
+        <NavbarItem>
+          <NavbarBrand>
+            <FaSchool className="h-7 w-7" />
+          </NavbarBrand>
+        </NavbarItem>
         <NavbarItem isActive={isActive(paths.home())}>
           <Link color={isActive(paths.home()) ? "secondary" : "foreground"} href={paths.home()}>
             Accueil

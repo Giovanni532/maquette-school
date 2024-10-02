@@ -41,7 +41,7 @@ export default function ProjetsPage() {
     };
 
     return (
-        <section className="flex flex-col md:flex-row my-10 md:my-20 gap-5 md:gap-10 mx-4 md:mx-10 h-[80vh]">
+        <section className="flex flex-col md:flex-row my-10 md:my-20 gap-5 md:gap-10 mx-4 md:mx-10 h-[100vh]">
             <div className="w-full md:w-2/12 p-4 flex flex-col gap-4 border-1 bg-white rounded-lg mb-5 md:mb-0">
                 <h2 className="text-xl font-bold">Filtrées par catégories</h2>
                 <CheckboxGroup
@@ -55,7 +55,7 @@ export default function ProjetsPage() {
                 </CheckboxGroup>
             </div>
             <div className="w-full md:w-3/4">
-                <div className='flex flex-wrap gap-4 justify-center md:justify-start'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center'>
                     {projets.map((projet) => (
                         <CardProjet key={projet.id} projet={projet} />
                     ))}
