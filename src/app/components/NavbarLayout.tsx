@@ -61,9 +61,11 @@ export default function NavbarLayout() {
           className="w-50"
         />
         <Button
+          as={Link}
           color="secondary"
           size="md"
           startContent={<FaPlus size={18} />}
+          href={paths.addProjet()}
         >
           Ajouter un projet
         </Button>

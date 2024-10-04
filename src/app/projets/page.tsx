@@ -41,7 +41,7 @@ export default function ProjetsPage() {
     };
 
     return (
-        <section className="flex flex-col md:flex-row my-10 md:my-20 gap-5 md:gap-10 mx-4 md:mx-10 h-[100vh]">
+        <section className="flex flex-col md:flex-row my-10 md:my-20 gap-5 md:gap-10 mx-4 md:mx-10 min-h-[80vh]">
             <div className="w-full md:w-2/12 p-4 flex flex-col gap-4 border-1 bg-white rounded-lg mb-5 md:mb-0">
                 <h2 className="text-xl font-bold">Filtrées par catégories</h2>
                 <CheckboxGroup
@@ -49,9 +49,9 @@ export default function ProjetsPage() {
                     value={filtreActif}
                     onValueChange={handleFiltreChange}
                 >
-                    <Checkbox value="IA">IA</Checkbox>
-                    <Checkbox value="Web">Web</Checkbox>
-                    <Checkbox value="Mobile">Mobile</Checkbox>
+                    <Checkbox name="IA" value="IA" tabIndex={0}>IA</Checkbox>
+                    <Checkbox name="Web" value="Web" tabIndex={0}>Web</Checkbox>
+                    <Checkbox name="Mobile" value="Mobile" tabIndex={0}>Mobile</Checkbox>
                 </CheckboxGroup>
             </div>
             <div className="w-full md:w-3/4">

@@ -11,6 +11,8 @@ interface CardProjetProps {
     description: string;
     image: string;
     auteur: string;
+    tech: string;
+    link: string;
   }
 }
 

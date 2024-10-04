@@ -55,6 +55,12 @@ export default function Contact() {
         }
 
         return setTimeout(() => {
+            setFormData({
+                nom: '',
+                prenom: '',
+                email: '',
+                message: ''
+            })
             setIsLoading(false)
             setSuccess(true)
         }, 1000);
@@ -72,7 +78,7 @@ export default function Contact() {
     }
 
     return (
-        <div className=' min-h-[83vh]'>
+        <div className='min-h-[83vh]'>
             <form
                 className="pt-40"
                 onSubmit={handleSubmit}

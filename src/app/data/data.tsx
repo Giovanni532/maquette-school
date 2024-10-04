@@ -6,6 +6,8 @@ export const projetsData = [
     image: "https://www.powertrafic.fr/wp-content/uploads/2023/04/image-ia-exemple.png",
     auteur: "John Doe",
     categorie: "IA",
+    tech: "React",
+    link: "https://www.powertrafic.fr/wp-content/uploads/2023/04/image-ia-exemple.png"
   },
   {
     id: 2,
@@ -14,6 +16,8 @@ export const projetsData = [
     image: "/images/projet2.png",
     auteur: "Jane Doe",
     categorie: "IA",
+    tech: "React",
+    link: "https://www.powertrafic.fr/wp-content/uploads/2023/04/image-ia-exemple.png"
   },
   {
     id: 3,
@@ -22,6 +26,8 @@ export const projetsData = [
     image: "/images/projet3.png",
     auteur: "Giovanni Doe",
     categorie: "IA",
+    tech: "React",
+    link: "https://www.powertrafic.fr/wp-content/uploads/2023/04/image-ia-exemple.png"
   },
   {
     id: 4,
@@ -30,6 +36,8 @@ export const projetsData = [
     image: "/images/projet4.png",
     auteur: "Stephane Doe",
     categorie: "IA",
+    tech: "React",
+    link: "https://www.powertrafic.fr/wp-content/uploads/2023/04/image-ia-exemple.png"
   },
   {
     id: 5,
@@ -38,5 +46,7 @@ export const projetsData = [
     image: "/images/projet5.png",
     auteur: "Andre Doe",
     categorie: "IA",
+    tech: "React",
+    link: "https://www.powertrafic.fr/wp-content/uploads/2023/04/image-ia-exemple.png"
   }
 ];
