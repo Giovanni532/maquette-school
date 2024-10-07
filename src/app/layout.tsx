@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" >
+    <html lang="en">
       <body
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -36,7 +36,9 @@ export default function RootLayout({
         <Provider>
           <NavbarLayout />
           <BackgroundBeams>
-            {children}
+            <main className="flex-grow">
+              {children}
+            </main>
           </BackgroundBeams>
           <Footer />
         </Provider>

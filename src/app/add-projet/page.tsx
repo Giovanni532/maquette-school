@@ -45,7 +45,8 @@ export default function AddProjet() {
             description: z.string().min(1, { message: 'La description est obligatoire' }),
             lien: z.string().url({ message: 'Veuillez entrer une URL valide' }),
             auteur: z.string().min(1, { message: "Le nom de l'auteur est obligatoire" }),
-            tech: z.string().min(1, { message: 'La technologie utilisée est obligatoire' })
+            tech: z.string().min(1, { message: 'La technologie utilisée est obligatoire' }),
+            image: z.instanceof(File, { message: 'Une image est requise' })
         });
 
         const validationResult = projetSchema.safeParse(projet);
@@ -139,7 +140,7 @@ export default function AddProjet() {
                     isInvalid={error?.description}
                     errorMessage={error?.description ? 'La description est obligatoire' : ''}
                 />
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col items-center gap-2">
                     <input
                         type="file"
                         accept="image/*"
@@ -150,13 +151,13 @@ export default function AddProjet() {
                     <Button
                         as="label"
                         htmlFor="imageUpload"
-                        color="success"
+                        color={error?.image ? 'danger' : 'success'}
                         className='w-full text-white'
                         endContent={<FaFileUpload className='h-6 w-6' />}
                     >
-                        {projet.image ? 'Image sélectionnée' : 'Ajouter une image'}
+                        {projet.image ? `Image sélectionnée ${projet.image.name}` : 'Ajouter une image'}
                     </Button>
-                    {projet.image && <span>{projet.image.name}</span>}
+                    {error?.image && <span className='text-red-500'>Une image est requise</span>}
                 </div>
                 <Button isLoading={isLoading} isDisabled={isLoading} type="submit" color="secondary" className='w-full' endContent={<PiCodeBold className='h-6 w-6' />}>
                     Ajouter le projet

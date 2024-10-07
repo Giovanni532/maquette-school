@@ -1,8 +1,11 @@
-import Comment from '@/app/components/Comment';
+'use client'
+
+import AddComment from '@/app/components/AddComment';
 import { projetsData } from '@/app/data/data';
-import {  Image, Link } from '@nextui-org/react';
-import React from 'react'
-import { WiDirectionUpRight } from "react-icons/wi";
+import { Button, Divider, Image, Link } from '@nextui-org/react';
+import { TbDirectionSignFilled } from "react-icons/tb";
+import React from 'react';
+import { motion } from 'framer-motion';
 
 interface ProjetPageProps {
     params: {
@@ -18,33 +21,59 @@ export default function ProjetPage({ params }: ProjetPageProps) {
     }
 
     return (
-        <div className="flex flex-col px-4 py-8 h-[80vh] justify-center items-center">
+        <div className="flex flex-col px-4 py-8 h-[80vh] justify-center items-center my-10">
             <div className="flex flex-col md:flex-row gap-12 items-center justify-center">
-                <div className="w-1/2">
+                <motion.div
+                    className="w-1/2"
+                    initial={{ x: '-100%', opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
                     <Image src={projet.image} alt={projet.titre} width={400} height={200} className="object-cover" />
-                </div>
-                <div className="flex flex-col gap-4">
+                </motion.div>
+                <motion.div
+                    className="flex flex-col gap-4 bg-white p-4 rounded-lg max-w-md w-full my-2 shadow-md"
+                    initial={{ x: '100%', opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
                     <p className="text-2xl font-bold">{projet.titre}</p>
                     <p className="text-sm text-gray-500">{projet.description}</p>
                     <p className="text-sm text-gray-500">Etudiant : {projet.auteur}</p>
                     <p className="text-sm text-gray-500">Ce projet a été réalisé avec {projet.tech}</p>
-                    <div className="flex items-center flex-row gap-2">
-                        <Link href={projet.link} target="_blank" className='text-sm text-gray-600 items-center gap-2'>Voir le <span className='text-secondary'>projet</span></Link>
+                    <div className="flex flex-col gap-4 items-center">
+                        <AddComment />
+                        <Divider className='w-40' />
+                        <Button
+                            as={Link}
+                            variant='light'
+                            color='secondary'
+                            endContent={<TbDirectionSignFilled className='h-6 w-6' />}
+                            href={projet.link}
+                            target='_blank'
+                        >Voir le site du projet</Button>
                     </div>
-                    <Comment />
-                </div>
+                </motion.div>
             </div>
-            {/* <div className="flex flex-col gap-4">
+            <motion.div
+                className="flex flex-col gap-4 bg-white p-4 rounded-lg max-w-2xl w-full my-2"
+                initial={{ y: '100%', opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+            >
                 <h2 className="text-2xl font-bold mb-6">Commentaires</h2>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-6">
                     {projet.commentaires.map((commentaire, index) => (
-                        <div key={index} className="flex flex-col gap-2">
-                            <p className="text-sm text-gray-500">{commentaire.nom} {commentaire.prenom}</p>
+                        <div key={index} className="flex flex-col gap-2 shadow-md p-4 rounded-lg">
+                            <div className="flex flex-row justify-between">
+                                <p className="text-sm text-gray-500">{commentaire.auteur}</p>
+                                <p className="text-sm text-gray-500">{commentaire.date}</p>
+                            </div>
                             <p className="text-sm text-gray-500">{commentaire.commentaire}</p>
                         </div>
                     ))}
                 </div>
-            </div>*/}
+            </motion.div>
         </div>
     )
 }

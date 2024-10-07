@@ -5,6 +5,7 @@ import { projetsData } from '../data/data';
 import CardProjet from '../components/CardProjet';
 import { CheckboxGroup, Checkbox } from "@nextui-org/react";
 import { useSearchParams } from 'next/navigation';
+import { motion } from 'framer-motion'
 
 export default function ProjetsPage() {
     const searchParams = useSearchParams();
@@ -56,8 +57,17 @@ export default function ProjetsPage() {
             </div>
             <div className="w-full md:w-3/4">
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center'>
-                    {projets.map((projet) => (
-                        <CardProjet key={projet.id} projet={projet} />
+                    {projets.map((projet, index) => (
+                        <motion.div
+                            key={projet.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.2, duration: 0.5 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                        >
+                            <CardProjet key={projet.id} projet={projet} />
+
+                        </motion.div>
                     ))}
                 </div>
             </div>

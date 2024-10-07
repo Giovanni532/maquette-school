@@ -18,7 +18,9 @@ interface CardProjetProps {
 
 export default function CardProjet({ projet }: CardProjetProps) {
   return (
-    <Card radius='lg' className='max-w-xs mx-auto'>
+    <Card radius='lg'
+      className='max-w-xs mx-auto transform transition-transform duration-300 hover:scale-105'
+    >
       <CardHeader className='flex flex-col items-start gap-2'>
         <Image
           src={projet.image}
