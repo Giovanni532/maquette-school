@@ -1,6 +1,6 @@
 "use client"
 import { paths } from "@/paths";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Input, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar, Button } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Input, Button, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaPlus, FaSchool, FaSearch } from "react-icons/fa";
@@ -10,6 +10,22 @@ export default function NavbarLayout() {
   const pathname = usePathname();
   const router = useRouter();
   const [search, setSearch] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const menuItems = [
+    {
+      label: "Accueil",
+      href: paths.home(),
+    },
+    {
+      label: "Projets",
+      href: paths.projets(),
+    },
+    {
+      label: "Contact",
+      href: paths.contact(),
+    },
+  ];
 
   const isActive = (path: string) => {
     return path === pathname;
@@ -26,13 +42,17 @@ export default function NavbarLayout() {
   }
 
   return (
-    <Navbar isBordered isBlurred={false} className="z-40 bg-white">
+    <Navbar isBordered isBlurred={false} className="z-40 bg-white" onMenuOpenChange={setIsMenuOpen}>
+      <NavbarContent>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+        <NavbarBrand>
+          <FaSchool className="h-7 w-7" />
+        </NavbarBrand>
+      </NavbarContent>
       <NavbarContent justify="center" className="hidden sm:flex gap-3">
-        <NavbarItem>
-          <NavbarBrand>
-            <FaSchool className="h-7 w-7" />
-          </NavbarBrand>
-        </NavbarItem>
         <NavbarItem isActive={isActive(paths.home())}>
           <Link color={isActive(paths.home()) ? "secondary" : "foreground"} href={paths.home()}>
             Accueil
@@ -58,7 +78,7 @@ export default function NavbarLayout() {
           value={search}
           onChange={onSearch}
           onKeyDown={handleKeyPress}
-          className="w-50"
+          className="w-52 md:w-50"
         />
         <Button
           as={Link}
@@ -70,6 +90,21 @@ export default function NavbarLayout() {
           Ajouter un projet
         </Button>
       </NavbarContent>
+      <NavbarMenu className="bg-white">
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link
+              className="w-full"
+              color={isActive(item.href) ? "secondary" : "foreground"}
+              href={item.href}
+              onClick={() => setIsMenuOpen(false)}
+              size="lg"
+            >
+              {item.label}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
     </Navbar>
   );
 }

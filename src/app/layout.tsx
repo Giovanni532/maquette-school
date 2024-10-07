@@ -33,13 +33,13 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <BackgroundBeams />
+
         <Provider>
           <NavbarLayout />
-          <BackgroundBeams>
-            <main className="flex-grow">
-              {children}
-            </main>
-          </BackgroundBeams>
+          <main className="flex-grow relative z-10">
+            {children}
+          </main>
           <Footer />
         </Provider>
       </body>
