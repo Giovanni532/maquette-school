@@ -88,7 +88,7 @@ export default function AddProjet() {
     }
 
     return (
-        <div className="max-w-md mx-auto min-h-[80vh] flex flex-col justify-center items-center ">
+        <div className="max-w-md mx-auto min-h-[90vh] flex flex-col justify-center items-center ">
             <form onSubmit={handleSubmit} className="space-y-4 bg-white p-10 rounded-lg shadow-md">
                 <h1 className="text-2xl font-bold mb-5 text-secondary text-center">Ajouter un nouveau projet</h1>
                 <div className="flex flex-col md:flex-row gap-4">
@@ -149,10 +149,7 @@ export default function AddProjet() {
                         id="imageUpload"
                     />
                     <Button
-                        as="label"
-                        htmlFor="imageUpload"
-                        color={error?.image ? 'danger' : 'success'}
-                        className='w-full text-white'
+                        className={`w-full text-white ${error?.image ? 'bg-red-500' : 'bg-blue-700'}`}
                         endContent={<FaFileUpload className='h-6 w-6' />}
                     >
                         {projet.image ? `Image sélectionnée ${projet.image.name}` : 'Ajouter une image'}

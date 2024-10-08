@@ -44,13 +44,15 @@ export default function NavbarLayout() {
   return (
     <Navbar isBordered isBlurred={false} className="z-40 bg-white" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-        <NavbarBrand>
-          <FaSchool className="h-7 w-7" />
-        </NavbarBrand>
+        <NavbarItem>
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="sm:hidden"
+          />
+          <NavbarBrand>
+            <FaSchool className="h-7 w-7" />
+          </NavbarBrand>
+        </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="center" className="hidden sm:flex gap-3">
         <NavbarItem isActive={isActive(paths.home())}>
