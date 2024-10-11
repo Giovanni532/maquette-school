@@ -14,4 +14,7 @@ export const paths = {
     addProjet: () => {
         return "/add-projet";
     },
+    accessibility: () => {
+        return "/accessibilite";
+    },
 }
