@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Button,
     Input,
@@ -14,8 +14,9 @@ import {
 } from '@nextui-org/react'
 import { FaComments } from "react-icons/fa6";
 import z from 'zod';
+import Notifications from './Notifications';
 
-export default function AddComment() {
+export default function AddComment({ setShowNotification }: { setShowNotification: React.Dispatch<React.SetStateAction<boolean>> }) {
     const [comment, setComment] = useState({
         nom: '',
         prenom: '',
@@ -61,6 +62,8 @@ export default function AddComment() {
                 prenom: '',
                 message: ''
             });
+            setShowNotification(true); // Utilisation de la prop pour mettre à jour l'état
+            onOpenChange();
             setIsLoading(false);
         }, 1000);
     };

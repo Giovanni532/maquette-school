@@ -4,8 +4,9 @@ import AddComment from '@/app/components/AddComment';
 import { projetsData } from '@/app/data/data';
 import { Button, Divider, Image, Link } from '@nextui-org/react';
 import { TbDirectionSignFilled } from "react-icons/tb";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Notifications from '@/app/components/Notifications';
 
 interface ProjetPageProps {
     params: {
@@ -14,6 +15,17 @@ interface ProjetPageProps {
 }
 
 export default function ProjetPage({ params }: ProjetPageProps) {
+    const [showNotification, setShowNotification] = useState(false);
+
+    useEffect(() => {
+        if (showNotification) {
+            const timer = setTimeout(() => {
+                setShowNotification(false);
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [showNotification]);
+
     const projet = projetsData.find(projet => projet.id === parseInt(params.id));
 
     if (!projet) {
@@ -42,7 +54,7 @@ export default function ProjetPage({ params }: ProjetPageProps) {
                     <p className="text-sm text-gray-500">Etudiant : {projet.auteur}</p>
                     <p className="text-sm text-gray-500">Ce projet a été réalisé avec {projet.tech}</p>
                     <div className="flex flex-col gap-4 items-center">
-                        <AddComment />
+                        <AddComment setShowNotification={setShowNotification} />
                         <Divider className='w-40' />
                         <Button
                             as={Link}
@@ -74,6 +86,12 @@ export default function ProjetPage({ params }: ProjetPageProps) {
                     ))}
                 </div>
             </motion.div>
+            {showNotification && (
+                <Notifications
+                    title="Succès"
+                    description="Votre commentaire a été envoyé avec succès."
+                />
+            )}
         </div>
     )
 }
