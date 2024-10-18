@@ -95,6 +95,7 @@ export default function AddProjet() {
                     <Input
                         label="Titre"
                         placeholder="Entrez le titre du projet"
+                        name="titre"
                         value={projet.titre}
                         onChange={handleChange}
                         isRequired
@@ -104,6 +105,7 @@ export default function AddProjet() {
                     <Input
                         label="Auteur"
                         placeholder="Nom de l'auteur"
+                        name="auteur"
                         value={projet.auteur}
                         onChange={handleChange}
                         isRequired
@@ -115,6 +117,7 @@ export default function AddProjet() {
                     <Input
                         label="Technologie utilisée"
                         placeholder="Ex: React, Node.js, etc."
+                        name="tech"
                         value={projet.tech}
                         onChange={handleChange}
                         isRequired
@@ -124,6 +127,7 @@ export default function AddProjet() {
                     <Input
                         label="Lien du projet"
                         placeholder="https://exemple.com/"
+                        name="lien"
                         value={projet.lien}
                         onChange={handleChange}
                         isRequired
@@ -134,6 +138,7 @@ export default function AddProjet() {
                 <Textarea
                     label="Description"
                     placeholder="Décrivez votre projet"
+                    name="description"
                     value={projet.description}
                     onChange={handleChange}
                     isRequired

@@ -6,7 +6,7 @@ export default function NewsLetterSection() {
     <div className='flex flex-col items-center justify-center gap-10 mt-40 bg-secondary w-full p-8'>
       <h1 className='text-4xl font-bold text-center text-white'>NewsLetter</h1>
       <p className='text-lg text-gray-300 text-center'>
-        Tu peux t'<span className='text-white'>inscrire</span> à la newsletter pour voir les dernières projets sortis.
+        Tu peux t&apos;<span className='text-white'>inscrire</span> à la newsletter pour voir les dernières projets sortis.
       </p>
       <Input
         type='email'
@@ -20,7 +20,7 @@ export default function NewsLetterSection() {
         radius='full'
         size='lg'
       >
-        S'inscrire
+        S&apos;inscrire
       </Button>
     </div>
   )
