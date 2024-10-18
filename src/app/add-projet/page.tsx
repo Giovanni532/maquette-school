@@ -156,6 +156,7 @@ export default function AddProjet() {
                     <Button
                         className={`w-full text-white ${error?.image ? 'bg-red-500' : 'bg-blue-700'}`}
                         endContent={<FaFileUpload className='h-6 w-6' />}
+                        onClick={() => document.getElementById('imageUpload')?.click()}
                     >
                         {projet.image ? `Image sélectionnée ${projet.image.name}` : 'Ajouter une image'}
                     </Button>
